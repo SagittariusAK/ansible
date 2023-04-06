@@ -1,0 +1,20 @@
+---
+
+- name: Install default Apache Web Server
+  hosts: ubuntu_servers
+  become: no
+
+
+  tasks:
+  - name: Install Apashe WebServer
+    apt:
+      name: apache2
+      state: latest
+
+  - name: Start Apache and Enable
+    service:
+      name: apache2
+      state: started
+      enabled: yes
+
+

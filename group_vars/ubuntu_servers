@@ -1,0 +1,4 @@
+---
+
+ansible_user:                 sagittarius
+ansible_ssh_private_key_file: /home/sagittarius/.ssh/id_ecdsa

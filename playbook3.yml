@@ -1,0 +1,28 @@
+---
+
+- name: Install Apache and Uoload my Web
+  hosts: ubuntu_servers
+  become: yes
+
+  vars:
+    source_file: /home/sagittarius/ansible/WebSite/index.html
+    destin_file: /var/www/html
+
+  tasks:
+  - name: Install Apache Web
+    apt:
+      name: apache2
+      state: latest
+
+  - name: Copy WebSite
+    copy:
+      src: "{{ source_file }}"
+      dest: "{{ destin_file }}"
+      mode: 0555
+
+  - name: Start WebServer and make it enable
+    service:
+      name: apache2
+      state: started
+      enabled: yes
+
